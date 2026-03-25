@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>THE MUSE | PRIVATE ARCHIVE</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,900;1,400&family=Montserrat:wght@100;300;600&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+    
+    <style>
+        :root { --gold: #C5A059; --soft-white: #FAF9F6; --deep-black: #0a0a0a; }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { background: var(--soft-white); color: var(--deep-black); font-family: 'Montserrat', sans-serif; overflow-x: hidden; }
+
+        /* Luxury Entrance */
+        #overlay { position: fixed; inset: 0; background: var(--deep-black); display: flex; flex-direction: column; justify-content: center; align-items: center; z-index: 2000; transition: 2.5s cubic-bezier(0.19, 1, 0.22, 1); }
+        #enter-btn { padding: 22px 70px; border: 1px solid var(--gold); background: transparent; color: var(--gold); font-family: 'Playfair Display'; font-size: 0.9rem; cursor: pointer; letter-spacing: 10px; transition: 0.8s; text-transform: uppercase; }
+        #enter-btn:hover { background: var(--gold); color: white; letter-spacing: 12px; }
+
+        /* Scrolling Animations */
+        .section { min-height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; padding: 120px 25px; text-align: center; opacity: 0; transform: translateY(80px); transition: 2.5s all ease-out; }
+        .section.visible { opacity: 1; transform: translateY(0); }
+        
+        h1 { font-family: 'Playfair Display'; font-size: clamp(2.5rem, 8vw, 5rem); font-weight: 400; line-height: 1.1; margin-bottom: 40px; }
+        .italic-gold { color: var(--gold); font-style: italic; }
+
+        .epistle-text { max-width: 850px; line-height: 2.5; font-size: 1.3rem; font-weight: 300; color: #1a1a1a; margin: 50px 0; text-align: justify; text-justify: inter-word; letter-spacing: 0.5px; }
+
+        /* Elegant Media Frames */
+        .media-container { width: 100%; max-width: 550px; margin: 50px auto; border: 1px solid rgba(197, 160, 89, 0.2); padding: 10px; transition: 1.5s; }
+        img, video { width: 100%; height: auto; display: block; border-radius: 2px; box-shadow: 0 20px 50px rgba(0,0,0,0.1); }
+        .media-container:hover { border-color: var(--gold); transform: scale(1.01); }
+
+        /* The Flower Choice Section */
+        .proposal-box { background: var(--deep-black); color: var(--soft-white); width: 100%; padding: 180px 20px; text-align: center; }
+        .btn-group { display: flex; gap: 30px; justify-content: center; margin-top: 60px; flex-wrap: wrap; }
+        .choice-btn { padding: 25px 100px; border: 1px solid var(--gold); background: transparent; color: var(--gold); font-family: 'Playfair Display'; font-size: 1.6rem; cursor: pointer; transition: 0.5s; letter-spacing: 3px; }
+        .choice-btn:hover { background: var(--gold); color: white; transform: translateY(-5px); }
+
+        footer { padding: 150px 20px; text-align: center; border-top: 1px solid #eee; }
+    </style>
+</head>
+<body>
+
+    <div id="overlay">
+        <p style="color: var(--gold); letter-spacing: 12px; margin-bottom: 40px; font-size: 0.6rem;">PRIVATE CURATION FOR THE MUSE</p>
+        <button id="enter-btn" onclick="startExperience()">Open The Archive</button>
+    </div>
+
+    <audio id="bgMusic" loop><source src="music.mp3" type="audio/mpeg"></audio>
+
+    <section class="section">
+        <p style="letter-spacing: 5px; color: var(--gold); margin-bottom: 20px;">CHAPTER 01</p>
+        <h1>The <span class="italic-gold">Aura</span></h1>
+        <div class="media-container"><img src="photo1.jpg"></div>
+        <div class="epistle-text">
+            There are people who simply exist in a room, and then there are people like you who curate the very atmosphere of the space they enter. I’ve watched you, and it’s never just about the clothes or the aesthetic for you. It is a deep, expensive grace that you carry in your walk, your talk, and your silence. You don't just dress nice; you curate moments. Every outfit is a statement of confidence, and every sidewalk you step on might as well be a runway in Milan.
+        </div>
+        <div class="media-container" style="max-width: 400px;"><img src="photo2.jpg"></div>
+    </section>
+
+    <section class="section">
+        <h1>The <span class="italic-gold">Signature</span></h1>
+        <div class="media-container"><video autoplay loop muted playsinline><source src="video1.mp4"></video></div>
+        <div class="epistle-text">
+            But let’s talk about the most beautiful part of you: that smile. Your smile is literally a reset button. It’s soft, it’s genuine, and it’s the kind of light that doesn't need a filter. In a world that can be so loud and demanding, seeing you happy is a reminder that there is still peace and beauty to be found. It is your most powerful accessory, and it’s the one thing no other model can ever replicate.
+        </div>
+        <div class="media-container" style="max-width: 450px;"><img src="photo3.jpg"></div>
+    </section>
+
+    <section class="section" style="background: #fbfaf8;">
+        <h1>Runway <span class="italic-gold">Vision</span></h1>
+        <div class="media-container"><video autoplay loop muted playsinline><source src="video2.mp4"></video></div>
+        <div class="epistle-text">
+            I know you have big dreams for the spotlight. I know you wish to be a model, but I need you to understand something: the world just hasn't caught up to what I already see. You don't need a professional camera or a high-fashion stage to be a muse. You are already a masterpiece in progress. Every time you pose, every time you step out with that 'rich girl' energy, you are practicing for a destiny that is already yours. 
+        </div>
+        <div class="media-container"><img src="photo4.jpg"></div>
+    </section>
+
+    <section class="section">
+        <div class="epistle-text">
+            You have the discipline, the looks, and the spirit of a star. Don't ever let a quiet moment make you think your light is dimming—you are just preparing for the grand stage. Beyond the 'slay' and the perfect photos, I want you to know that I am in your corner for life. Thank you for being the person I can always turn to, the one who keeps me grounded and sane. I’m not just your friend; I’m your permanent 'paparazzi' and your loudest cheerleader.
+        </div>
+        <div class="media-container"><img src="photo5.jpg"></div>
+        <div class="media-container" style="max-width: 400px;"><img src="photo6.jpg"></div>
+    </section>
+
+    <section class="section">
+        <h1>The <span class="italic-gold">Vows</span></h1>
+        <div class="epistle-text" style="font-family: 'Playfair Display'; font-style: italic; font-size: 1.6rem; color: var(--gold); border-left: 1px solid var(--gold); padding-left: 30px;">
+            I vow to always be the first person to celebrate your wins. I vow to stay in your corner until we see your face on every billboard, and even then, I'll be the one in the front row. I vow to be your sanctuary when the world is too much, and to always honor the woman you are behind the lens. You are a Queen, you are a Muse, and you are my person for life.
+        </div>
+        <div class="media-container"><img src="photo7.jpg"></div>
+    </section>
+
+    <section class="proposal-box">
+        <p style="color: var(--gold); letter-spacing: 5px; margin-bottom: 20px;">ONE FINAL QUESTION</p>
+        <h1 style="color: white; font-size: 3rem;">Will you be my best friend for life?</h1>
+        <div class="btn-group">
+            <button class="choice-btn" onclick="celebrate()">YES</button>
+            <button class="choice-btn" onclick="celebrate()">YES</button>
+        </div>
+        <div class="media-container" style="margin-top: 100px; border: none;"><video autoplay loop muted playsinline><source src="video3.mp4"></video></div>
+    </section>
+
+    <footer>
+        <p style="font-family: 'Playfair Display'; font-size: 2.2rem; font-style: italic;">Always & Forever,</p>
+        <h1 style="font-size: 2.5rem; margin-top: 10px;">[Aaliyah]</h1>
+        <p style="color: var(--gold); font-size: 0.6rem; letter-spacing: 6px; margin-top: 60px;">© 2026 THE MUSE ARCHIVE | NO IMITATIONS</p>
+    </footer>
+
+    <script>
+        function startExperience() {
+            document.getElementById('overlay').style.opacity = '0';
+            setTimeout(() => { document.getElementById('overlay').style.display = 'none'; }, 2000);
+            document.getElementById('bgMusic').play();
+        }
+
+        function celebrate() {
+            // Flower Petal Explosion
+            var duration = 5 * 1000;
+            var animationEnd = Date.now() + duration;
+            var defaults = { startVelocity: 30, spread: 360, ticks: 60, zIndex: 3000 };
+
+            function randomInRange(min, max) { return Math.random() * (max - min) + min; }
+
+            var interval = setInterval(function() {
+                var timeLeft = animationEnd - Date.now();
+                if (timeLeft <= 0) { return clearInterval(interval); }
+                var particleCount = 50 * (timeLeft / duration);
+                // Pink and Gold petals
+                confetti(Object.assign({}, defaults, { particleCount, origin: { x: randomInRange(0.1, 0.3), y: Math.random() - 0.2 }, colors: ['#ffc0cb', '#D4AF37', '#ffffff'] }));
+                confetti(Object.assign({}, defaults, { particleCount, origin: { x: randomInRange(0.7, 0.9), y: Math.random() - 0.2 }, colors: ['#ffb6c1', '#D4AF37', '#FAF9F6'] }));
+            }, 250);
+
+            // WhatsApp Trigger (Wait for petals to start)
+            setTimeout(() => {
+                window.open("https://wa.me/2348167789416?text=I%20just%20saw%20the%20archive...%20and%20YES,%20best%20friends%20for%20life!%20🌸", "_blank");
+            }, 3000);
+        }
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); });
+        }, { threshold: 0.1 });
+        document.querySelectorAll('.section').forEach(section => { observer.observe(section); });
+    </script>
+</body>
+      </html>
+  
